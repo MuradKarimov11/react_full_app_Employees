@@ -13,6 +13,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
 import { Header } from "./components/header";
+import { Auth } from "./features/auth/auth";
 
 const router = createBrowserRouter([
   {
@@ -56,7 +57,9 @@ root.render(
           algorithm: theme.darkAlgorithm,
         }}
       >
-        <RouterProvider router={router} />
+        <Auth>
+          <RouterProvider router={router} />
+        </Auth>
       </ConfigProvider>
     </Provider>
   </React.StrictMode>
