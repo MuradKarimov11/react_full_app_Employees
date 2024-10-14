@@ -40,14 +40,16 @@ export const Employees = () => {
     }
   }, [user, navigate]);
 
+  const gotToAddUser = () => navigate(Paths.employeeAdd);
+
   return (
     <Layout>
       <CustomButton
         type="primary"
-        onClick={() => null}
+        onClick={gotToAddUser}
         icon={<PlusCircleOutlined />}
       >
-        Add
+        Добавить
       </CustomButton>
       <Table
         loading={isLoading}
