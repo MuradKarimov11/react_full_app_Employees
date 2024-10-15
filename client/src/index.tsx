@@ -9,14 +9,15 @@ import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { Paths } from "./paths";
 
-import reportWebVitals from "./reportWebVitals";
-
-import "./index.css";
-// import { Header } from "./components/header";
 import { Auth } from "./features/auth/auth";
 import { Employees } from "./pages/employees";
 import { AddEmployee } from "./pages/add-employee";
 import { Status } from "./pages/status";
+import { Employee } from "./pages/employee";
+import { EditEmployee } from "./pages/edit-employee";
+
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -35,14 +36,14 @@ const router = createBrowserRouter([
     path: Paths.employeeAdd,
     element: <AddEmployee />,
   },
-  // {
-  //   path: `${Paths.employee}/:id`,
-  //   element: <Employee />,
-  // },
-  // {
-  //   path: `${Paths.employeeEdit}/:id`,
-  //   element: <EditEmployee />,
-  // },
+  {
+    path: `${Paths.employee}/:id`,
+    element: <Employee />,
+  },
+  {
+    path: `${Paths.employeeEdit}/:id`,
+    element: <EditEmployee />,
+  },
   {
     path: `${Paths.status}/:status`,
     element: <Status />,
