@@ -1,17 +1,15 @@
-import { Layout, Space, Typography } from "antd";
 import {
+  TeamOutlined,
   LoginOutlined,
   LogoutOutlined,
-  TeamOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { CustomButton } from "../custom-button";
-import { Link, useNavigate } from "react-router-dom";
-import { Paths } from "../../paths";
+import { Layout, Space, Typography } from "antd";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { logout, selectUser } from "../../features/auth/authSlice";
-
-import styles from "./index.module.css";
+import { CustomButton } from "../custom-button";
+import style from "./index.module.css";
 
 export const Header = () => {
   const user = useSelector(selectUser);
@@ -25,12 +23,14 @@ export const Header = () => {
   };
 
   return (
-    <Layout.Header className={styles.header}>
+    <Layout.Header className={style.header}>
       <Space>
-        <TeamOutlined className={styles.teamIcon} />
-        <Link to={Paths.home}>
+        <TeamOutlined className={style.teamIcon} />
+        <Link to="/">
           <CustomButton type="ghost">
-            <Typography.Title level={1}>Сотрудники</Typography.Title>
+            <Typography.Title level={1} className={style.mt_13px}>
+              Сотрудники
+            </Typography.Title>
           </CustomButton>
         </Link>
       </Space>
@@ -44,12 +44,12 @@ export const Header = () => {
         </CustomButton>
       ) : (
         <Space>
-          <Link to={Paths.register}>
+          <Link to="/register">
             <CustomButton type="ghost" icon={<UserOutlined />}>
               Зарегистрироваться
             </CustomButton>
           </Link>
-          <Link to={Paths.login}>
+          <Link to="/login">
             <CustomButton type="ghost" icon={<LoginOutlined />}>
               Войти
             </CustomButton>
